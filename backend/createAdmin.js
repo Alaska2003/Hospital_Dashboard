@@ -1,8 +1,8 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-const Admin = require('./models/Admin');
+const Admin = require('./models/Admin'); // Make sure this path is correct
 
-mongoose.connect('<your_MongoDB_connection_string>', {
+mongoose.connect('mongodb+srv://alaska:WKVPvVu7QgZPAfLD@cluster0.kb9x7i1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -10,15 +10,15 @@ mongoose.connect('<your_MongoDB_connection_string>', {
 .catch((err) => console.error('Could not connect to MongoDB', err));
 
 async function createAdmin() {
-  const admin = new Admin({
-    firstName: "abc",
-    lastName: "xyz",
-    email: "abc@gmail.com",
-    password: "xyz123", 
-    role: "admin"
-  });
-
   try {
+    const admin = new Admin({
+      firstName: "Alaska",
+      lastName: "Negi",
+      email: "alaskaalaska767@gmail.com",
+      password: "xyz123",
+      role: "admin"
+    });
+
     await admin.save();
     console.log('Admin created successfully');
   } catch (error) {
